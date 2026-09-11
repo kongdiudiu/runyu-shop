@@ -7,9 +7,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-stanley), -apple-system, Inter, Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: var(--font-stanley), -apple-system, Inter, Roboto, Arial, sans-serif;
+  --color-ink: var(--ink);
+  --color-pink-white: var(--pink-white);
+  --color-brand-green: var(--brand-green);
+  --color-brand-red: var(--brand-red);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-smoke: var(--smoke);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,38 +58,48 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #101010;
+  --primary-foreground: #ffffff;
+  --secondary: #3f3f3f;
+  --secondary-foreground: #ffffff;
+  --muted: #e9e9e9;
+  --muted-foreground: #696969;
+  --accent: #22725f;
+  --accent-foreground: #ffffff;
+  --destructive: #a30817;
+  --border: #e9e9e9;
+  --input: #e9e9e9;
+  --ring: #101010;
+  /* Stanley 1913 brand tokens */
+  --ink: #101010;
+  --pink-white: #faf5f5;
+  --brand-green: #22725f;
+  --brand-red: #a30817;
+  --gray-2: #696969;
+  --gray-3: #4d4d4d;
+  --gray-4: #555555;
+  --gray-5: #6a6a6a;
+  --smoke: #e9e9e9;
+  --chart-1: #101010;
+  --chart-2: #22725f;
+  --chart-3: #a30817;
+  --chart-4: #696969;
+  --chart-5: #4d4d4d;
+  --radius: 0.25rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #101010;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e9e9e9;
+  --sidebar-ring: #101010;
 }
 
 .dark {
@@ -121,10 +140,29 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+  img {
+    @apply block max-w-full;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
   }
 }
