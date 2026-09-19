@@ -28,11 +28,11 @@ export const HEROES: HeroSlide[] = [
     subtitle: "Leakproof. Drama proof. All day proof.",
     cta: { label: "Shop Now", href: "/collections/leakproof-water-bottles" },
     image: {
-      src: "/images/080426-HP-Hero-D.jpg",
+      src: "/imgs/0.PNG",
       alt: "Stanley Quencher bottle held up against a dark backdrop",
     },
     imageMobile: {
-      src: "/images/080426-HP-Hero-M.jpg",
+      src: "/imgs/17d2b0919a0104a0a5a179b49f343524.jpg",
       alt: "Stanley Quencher bottle held up against a dark backdrop",
     },
     className: "h-[494.8px] md:h-[569.9px]",
@@ -47,11 +47,11 @@ export const HEROES: HeroSlide[] = [
     cta: { label: "Shop Now", href: "/collections/id-me" },
     logo: { src: "/images/IDme_Logo.png", alt: "ID.me" },
     image: {
-      src: "/images/080426-HP-Hero_2-D.jpg",
+      src: "/imgs/5.PNG",
       alt: "Stanley bottle with ID.me student and teacher discount",
     },
     imageMobile: {
-      src: "/images/080426-HP-Hero_2-M.jpg",
+      src: "/imgs/3.jpg",
       alt: "Stanley bottle with ID.me student and teacher discount",
     },
     className: "h-[330.6px] md:h-[455.3px]",
@@ -66,15 +66,32 @@ export const HEROES: HeroSlide[] = [
     subtitle: "Pack what you need. Keep it fresh. Enjoy when you're ready.",
     cta: { label: "Shop Now", href: "/collections/lunch-boxes" },
     image: {
-      src: "/images/072826-HP-Hero-D.jpg",
+      src: "/imgs/2.PNG",
       alt: "Stanley lunch box and bottle packed and ready",
     },
     imageMobile: {
-      src: "/images/072826-HP-Hero-M.jpg",
+      src: "/imgs/46bc72bc3060d1e87680b69f54b11c74.jpg",
       alt: "Stanley lunch box and bottle packed and ready",
     },
     className: "h-[494.8px] md:h-[569.9px]",
     ctaClassName: "md:mb-12",
+  },
+  {
+    variant: "dark",
+    title: "Built for life™ outdoors",
+    subtitle: "Rugged durability meets timeless design for your next adventure.",
+    cta: { label: "Explore Collection", href: "/collections/outdoor-adventure" },
+    image: {
+      src: "/imgs/6.PNG",
+      alt: "Stanley outdoor adventure gear",
+    },
+    imageMobile: {
+      src: "/imgs/ba639ca0d340bf9e9b4334465ef2683e.jpg",
+      alt: "Stanley outdoor adventure gear mobile",
+    },
+    className: "h-[494.8px] md:h-[569.9px]",
+    titleClassName: "max-w-[80%] md:max-w-full",
+    subtitleClassName: "md:mt-4",
   },
 ];
 
@@ -108,7 +125,7 @@ export function Hero({
         <img
           src={image.src}
           alt={image.alt}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </picture>
 

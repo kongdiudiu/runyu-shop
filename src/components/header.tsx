@@ -63,6 +63,7 @@ export function Header() {
         </Link>
 
         <nav aria-label="Menu" className="hidden md:block">
+          {/* 
           <ul className="flex items-center gap-6">
             <li>
               <button
@@ -119,6 +120,7 @@ export function Header() {
               </a>
             </li>
           </ul>
+          */}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -274,17 +276,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <div className="flex items-center gap-3">
-            <button type="button" onClick={closeDrawer}>
-              Sign In
-            </button>
-            <span aria-hidden="true" className="text-gray-2">
-              |
-            </span>
-            <button type="button" onClick={closeDrawer}>
-              Sign Up
-            </button>
-          </div>
+
           <button
             type="button"
             aria-label="Select Location and Language USA"

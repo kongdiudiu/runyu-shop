@@ -90,41 +90,7 @@ export function AnnouncementBar() {
         </button>
       </div>
 
-      <div className="ml-auto hidden h-full items-center gap-3 md:flex">
-        <a href="/pages/rewards" className="hover:underline">
-          Join the Club
-        </a>
-        <span aria-hidden="true" className="text-pink-white/60">
-          |
-        </span>
-        <button type="button" className="hover:underline">
-          Sign In
-        </button>
-        <span aria-hidden="true" className="text-pink-white/60">
-          |
-        </span>
-        <button type="button" className="hover:underline">
-          Sign Up
-        </button>
-        <span aria-hidden="true" className="text-pink-white/60">
-          |
-        </span>
-        <a href="/pages/contact-help-support" className="hover:underline">
-          Support
-        </a>
-        <span aria-hidden="true" className="text-pink-white/60">
-          |
-        </span>
-        <button
-          type="button"
-          aria-label="Select Location and Language USA"
-          className="flex items-center gap-1 hover:underline"
-        >
-          <Icon name="location" size={16} className="fill-pink-white" />
-          USA
-          <Icon name="chevron-down" size={12} className="fill-pink-white" />
-        </button>
-      </div>
+
     </div>
   );
 }
