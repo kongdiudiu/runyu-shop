@@ -59,7 +59,7 @@ export function Header() {
     <header ref={headerRef} className="relative bg-white">
       <div className="flex h-[84px] items-center justify-between px-5 md:h-20 md:px-12">
         <Link href="/" aria-label="Stanley 1913 Home" className="shrink-0">
-          <Icon name="logo-full" size={24} className="h-10 w-[227px] fill-ink" />
+          <img src="/imgs/logo.png" alt="" className="h-10 w-auto object-contain" />
         </Link>
 
         <nav aria-label="Menu" className="hidden md:block">
