@@ -67,64 +67,40 @@ export function Header() {
         </Link>
 
         <nav aria-label="Menu" className="hidden md:block">
-          {/* 
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-8">
             <li>
-              <button
-                type="button"
-                aria-expanded={menu === "shop"}
-                onClick={() => toggleMenu("shop")}
-                className="flex items-center gap-1 text-[14px] font-normal text-ink"
+              <a
+                href="#commercial-cases"
+                className="text-[14px] font-semibold text-ink transition-colors hover:text-black"
               >
-                Shop
-                <Icon
-                  name="chevron-down"
-                  size={12}
-                  className={cn(
-                    "fill-ink transition-transform duration-200",
-                    menu === "shop" && "rotate-180"
-                  )}
-                />
-              </button>
+                商业案例
+              </a>
             </li>
             <li>
-              <button
-                type="button"
-                aria-expanded={menu === "trending"}
-                onClick={() => toggleMenu("trending")}
-                className="flex items-center gap-1 text-[14px] font-normal text-ink"
+              <a
+                href="#on-site-gallery"
+                className="text-[14px] font-semibold text-ink transition-colors hover:text-black"
               >
-                Trending
-                <Icon
-                  name="chevron-down"
-                  size={12}
-                  className={cn(
-                    "fill-ink transition-transform duration-200",
-                    menu === "trending" && "rotate-180"
-                  )}
-                />
-              </button>
+                车间实景
+              </a>
             </li>
             <li>
               <a
                 href="#footer-contact"
-                onClick={() => setMenu(null)}
-                className="text-[14px] font-normal text-ink"
+                className="text-[14px] font-semibold text-ink transition-colors hover:text-black"
               >
                 OEM & ODM 定制合作
               </a>
             </li>
             <li>
               <a
-                href="/collections/sale"
-                onClick={() => setMenu(null)}
-                className="text-[14px] font-normal text-ink"
+                href="#footer-contact"
+                className="text-[14px] font-semibold text-ink transition-colors hover:text-black"
               >
-                Sale
+                联系咨询
               </a>
             </li>
           </ul>
-          */}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -256,20 +232,38 @@ export function Header() {
             })}
             <li className="border-b border-smoke">
               <a
+                href="#commercial-cases"
+                onClick={closeDrawer}
+                className="block px-5 py-4 text-[14px] font-semibold text-ink"
+              >
+                商业案例
+              </a>
+            </li>
+            <li className="border-b border-smoke">
+              <a
+                href="#on-site-gallery"
+                onClick={closeDrawer}
+                className="block px-5 py-4 text-[14px] font-semibold text-ink"
+              >
+                生产基地 · 车间实景
+              </a>
+            </li>
+            <li className="border-b border-smoke">
+              <a
                 href="#footer-contact"
                 onClick={closeDrawer}
-                className="block px-5 py-4 text-[14px] font-normal text-ink"
+                className="block px-5 py-4 text-[14px] font-semibold text-ink"
               >
                 OEM & ODM 定制合作
               </a>
             </li>
             <li className="border-b border-smoke">
               <a
-                href="/collections/sale"
+                href="#footer-contact"
                 onClick={closeDrawer}
-                className="block px-5 py-4 text-[14px] font-normal text-ink"
+                className="block px-5 py-4 text-[14px] font-semibold text-ink"
               >
-                Sale
+                联系咨询与二维码
               </a>
             </li>
           </ul>

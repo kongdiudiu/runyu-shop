@@ -4,6 +4,8 @@ import { Hero, HEROES } from "@/components/hero";
 import { Teaser } from "@/components/teaser";
 import { TEASERS } from "@/components/teaser-data";
 import { LifestyleTiles } from "@/components/lifestyle";
+import { CommercialCases } from "@/components/commercial-cases";
+import { OnSiteGallery } from "@/components/on-site-gallery";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { Footer } from "@/components/footer";
 import { CookieDialog } from "@/components/cookie-dialog";
@@ -27,8 +29,10 @@ export default function Home() {
         <Teaser teaser={teaser1} />
         <Hero {...hero2} />
         <LifestyleTiles />
+        <CommercialCases />
         <Hero {...hero3} />
         <Teaser teaser={teaser2} />
+        <OnSiteGallery />
         <Hero {...hero4} />
         <Teaser teaser={teaser3} />
         <GalleryGrid />
