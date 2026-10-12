@@ -15,11 +15,11 @@ const stanleyFavorit = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Stanley 1913 Drinkware & Gear | Bottles, Tumblers, Growlers & More",
+  title: "深圳润裕商贸有限公司 | SHENZHEN RUNYU TRADING CO., LTD. - 不锈钢制品专业制造 OEM&ODM",
   description:
-    "Shop Stanley 1913 drinkware and gear. Leakproof bottles, tumblers, mugs, lunch boxes, coolers and more. Built for life.",
+    "深圳润裕商贸有限公司 (SHENZHEN RUNYU TRADING CO., LTD.) 专注于高品质不锈钢制品研发与制造，提供专业的 OEM & ODM 代工合作服务。官方网址：http://www.runyu.shop/",
   icons: {
-    icon: "/seo/favicon.png",
+    icon: "/imgs/trademark.jpg",
   },
 };
 

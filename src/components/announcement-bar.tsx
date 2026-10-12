@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import type { AnnouncementSlide } from "@/types";
 
 const SLIDES: AnnouncementSlide[] = [
-  { text: "Shop New Arrivals", href: "/collections/new-arrivals" },
-  { text: "Free Shipping Over $75", href: "/collections/new-arrivals" },
-  { text: "Welcome to Stanley 1913 | A Brand of PMI", href: "" },
+  { text: "深圳润裕商贸有限公司 | SHENZHEN RUNYU TRADING CO., LTD.", href: "http://www.runyu.shop/" },
+  { text: "专业不锈钢制品 (Stainless Steel Products) 研发制造 | 支持 OEM & ODM 代工合作", href: "#" },
+  { text: "欢迎咨询洽谈合作 | 电话/WeChat/WhatsApp 快速对接", href: "#footer-contact" },
 ];
 
 const AUTOPLAY_MS = 4000;

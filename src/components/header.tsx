@@ -58,8 +58,12 @@ export function Header() {
   return (
     <header ref={headerRef} className="relative bg-white">
       <div className="flex h-[84px] items-center justify-between px-5 md:h-20 md:px-12">
-        <Link href="/" aria-label="Stanley 1913 Home" className="shrink-0">
-          <img src="/imgs/logo.png" alt="" className="h-10 w-auto object-contain" />
+        <Link href="/" aria-label="深圳润裕商贸有限公司" className="flex items-center gap-2 shrink-0">
+          <img src="/imgs/trademark.jpg" alt="深圳润裕商贸有限公司 Logo" className="h-10 md:h-12 w-auto object-contain rounded-sm" />
+          <div className="hidden sm:flex flex-col">
+            <span className="text-sm font-bold leading-tight text-ink">润裕商贸</span>
+            <span className="text-[10px] tracking-wider text-ink-muted">RUNYU TRADING</span>
+          </div>
         </Link>
 
         <nav aria-label="Menu" className="hidden md:block">
@@ -103,11 +107,11 @@ export function Header() {
             </li>
             <li>
               <a
-                href="https://www.stanley1913.com/collections/stanley-create-custom"
+                href="#footer-contact"
                 onClick={() => setMenu(null)}
                 className="text-[14px] font-normal text-ink"
               >
-                Customize
+                OEM & ODM 定制合作
               </a>
             </li>
             <li>
@@ -252,11 +256,11 @@ export function Header() {
             })}
             <li className="border-b border-smoke">
               <a
-                href="https://www.stanley1913.com/collections/stanley-create-custom"
+                href="#footer-contact"
                 onClick={closeDrawer}
                 className="block px-5 py-4 text-[14px] font-normal text-ink"
               >
-                Customize
+                OEM & ODM 定制合作
               </a>
             </li>
             <li className="border-b border-smoke">

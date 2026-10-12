@@ -1,238 +1,191 @@
 "use client";
 
-import { useState } from "react";
 import { Icon, type IconName } from "@/components/icons";
 
-interface FooterLink {
-  label: string;
-  href: string;
-  updated?: boolean;
+interface ContactPerson {
+  name: string;
+  role: string;
+  tel: string;
+  email: string;
+  wechatQr: string;
+  whatsappQr: string;
 }
 
-const COMPANY_LINKS: FooterLink[] = [
-  { label: "About Stanley 1913", href: "/pages/about" },
-  { label: "Careers", href: "/pages/careers" },
-  { label: "Newsroom", href: "/pages/newsroom" },
-  { label: "Stanley 1913 Creators Fund", href: "/pages/stanley-1913-creators-fund" },
-  { label: "Sustainability", href: "/pages/sustainability" },
-  { label: "Take Back Program", href: "/pages/take-back-program" },
-  { label: "Blogs", href: "/pages/blogs" },
-  { label: "Affiliate Program", href: "/pages/affiliate-program" },
-  { label: "Stanley 1913 Club Loyalty Program", href: "/pages/stanley-1913-club-loyalty-program" },
-  { label: "Site Map", href: "/pages/sitemap" },
-];
-
-const SUPPORT_LINKS: FooterLink[] = [
-  { label: "FAQ", href: "/pages/faq" },
-  { label: "Contact Us", href: "/pages/contact" },
-  { label: "Returns", href: "/pages/returns" },
-  { label: "Stainless-Steel Warranty Policy", href: "/pages/stainless-steel-warranty-policy" },
-  { label: "Product Recalls", href: "/pages/product-recalls" },
-  { label: "Soft Goods Warranty Policy", href: "/pages/soft-goods-warranty-policy" },
-  { label: "Find a Retail Store", href: "/pages/find-a-retail-store" },
-  { label: "Order Tracking", href: "/pages/order-tracking" },
-];
-
-const LEGAL_LINKS: FooterLink[] = [
-  { label: "Terms of Sale", href: "/pages/terms-of-sale", updated: true },
-  { label: "Terms of Service", href: "/pages/terms-of-service", updated: true },
-  { label: "Privacy Policy", href: "/pages/privacy-policy", updated: true },
-  { label: "Your Privacy Choices", href: "/pages/your-privacy-choices" },
-  { label: "Responsible Supply Chain Statement", href: "/pages/responsible-supply-chain-statement" },
-  { label: "Patent Information", href: "/pages/patent-information" },
-];
-
-const HELP_LINKS: FooterLink[] = [
-  { label: "Track My Order", href: "/pages/order-tracking" },
-  { label: "Start A Return", href: "https://www.stanley1913.com/apps/returns" },
-  { label: "Contact Us", href: "/pages/contact" },
+const CONTACTS: ContactPerson[] = [
+  {
+    name: "Erin",
+    role: "海外业务与客户对接 / Overseas Business",
+    tel: "+86 13128779836",
+    email: "liyinglong1996@gmail.com",
+    wechatQr: "/imgs/Erin_wechat.png",
+    whatsappQr: "/imgs/Erin_whatsapp.png",
+  },
+  {
+    name: "Ryan",
+    role: "商务合作与定制对接 / Business Cooperation",
+    tel: "+86 18123701992",
+    email: "Ryan@runyu.shop",
+    wechatQr: "/imgs/Ryan_wechat.png",
+    whatsappQr: "/imgs/Ryan_whatsapp.png",
+  },
 ];
 
 const SOCIALS: { name: IconName; href: string; label: string }[] = [
-  { name: "social-facebook", href: "https://www.facebook.com/Stanley1913/", label: "Facebook" },
-  { name: "social-instagram", href: "https://www.instagram.com/stanley1913_brand/", label: "Instagram" },
-  { name: "social-youtube", href: "https://www.youtube.com/@Stanley1913", label: "YouTube" },
-  { name: "social-tiktok", href: "https://www.tiktok.com/@stanley1913", label: "TikTok" },
+  { name: "social-facebook", href: "https://www.facebook.com/RunyuKENoVA", label: "Facebook @RunyuKENoVA" },
+  { name: "social-instagram", href: "https://www.instagram.com/RunyuKENoVA", label: "Instagram @RunyuKENoVA" },
+  { name: "social-tiktok", href: "https://www.tiktok.com/@RunyuKENoVA", label: "TikTok @RunyuKENoVA" },
 ];
 
-function openCookieDialog() {
-  window.dispatchEvent(new CustomEvent("open-cookie-dialog"));
-}
-
-function FooterLinkItem({ link }: { link: FooterLink }) {
+function ContactCard({ contact }: { contact: ContactPerson }) {
   return (
-    <li>
-      <a className="block p-1 text-[14px] leading-[1.4] text-white" href={link.href}>
-        {link.label}
-        {link.updated && <span className="ml-1 text-[12px] opacity-60">[Updated]</span>}
-      </a>
-    </li>
-  );
-}
-
-function NewsletterBlock() {
-  return (
-    <div className="flex w-full flex-col gap-4 lg:w-[517px] lg:shrink-0 lg:justify-between">
-      <div>
-        <h2 className="text-[26px] font-bold leading-[28.6px] lg:text-[36px] lg:leading-10 lg:tracking-[-0.02em]">
-          Be the first to know
-        </h2>
-        <p className="mt-4 text-[14px] text-white">Hear about new arrivals, sales, and other news.</p>
-      </div>
-      <div>
-        <p className="text-[20px] font-normal leading-[22px] text-white">
-          To receive SMS updates, text <strong>STANLEY1913</strong> to <strong>22936</strong>
-        </p>
-        <p className="mt-4 text-[12px] font-light leading-[16.8px] text-white">
-          By submitting your information, you agree to receive emails from Stanley 1913 and/or PMI WW
-          Brands, LLC. Message and data rates may apply. View our{" "}
-          <a className="p-1 underline" href="/policies/privacy-policy">
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a className="p-1 underline" href="https://www.stanley1913.com/pages/mobile-messaging-terms">
-            Terms
-          </a>
-          .
-        </p>
-      </div>
-      <div className="flex gap-4">
-        {SOCIALS.map((social) => (
-          <a key={social.name} href={social.href} aria-label={social.label} className="text-white">
-            <Icon name={social.name} size={24} />
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function NeedHelpBlock() {
-  return (
-    <div>
-      <h2 className="text-[26px] font-bold leading-[28.6px] lg:text-[36px] lg:leading-[39.6px]">
-        Need Help?
-      </h2>
-      <div className="mt-6 flex flex-col gap-6">
-        {HELP_LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="flex w-full items-center justify-center rounded-[4px] border-[1.6px] border-white bg-white px-8 py-[14px] text-[16px] font-bold text-[#101010]"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function LinkList({ links }: { links: FooterLink[] }) {
-  return (
-    <ul className="flex flex-col gap-[10px]">
-      {links.map((link) => (
-        <FooterLinkItem key={link.label} link={link} />
-      ))}
-    </ul>
-  );
-}
-
-function StaticColumn({ title, links, showCookieButton }: { title: string; links: FooterLink[]; showCookieButton?: boolean }) {
-  return (
-    <div>
-      <h3 className="mb-6 text-[23px] font-bold leading-[25.3px] tracking-[-0.02em] text-white">{title}</h3>
-      <LinkList links={links} />
-      {showCookieButton && (
-        <button
-          type="button"
-          onClick={openCookieDialog}
-          className="p-1 text-left text-[14px] leading-[1.4] text-white"
-        >
-          Do Not Sell/Share - Cookie Preferences
-        </button>
-      )}
-    </div>
-  );
-}
-
-function Accordion({ title, links, showCookieButton }: { title: string; links: FooterLink[]; showCookieButton?: boolean }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <button
-        type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-expanded={open}
-        className="flex w-full items-center justify-between text-[20px] text-white"
-      >
-        {title}
-        <Icon name={open ? "chevron-up" : "chevron-down"} size={16} />
-      </button>
-      {open && (
-        <div className="mt-6">
-          <LinkList links={links} />
-          {showCookieButton && (
-            <button
-              type="button"
-              onClick={openCookieDialog}
-              className="p-1 text-left text-[14px] leading-[1.4] text-white"
-            >
-              Do Not Sell/Share - Cookie Preferences
-            </button>
-          )}
+    <div className="flex flex-col gap-3 rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+      <div className="flex items-center justify-between border-b border-white/10 pb-2">
+        <div>
+          <span className="text-[18px] font-bold text-white">{contact.name}</span>
+          <p className="text-[12px] text-gray-300">{contact.role}</p>
         </div>
-      )}
-    </div>
-  );
-}
-
-function ColumnsGroup({ variant }: { variant: "accordion" | "static" }) {
-  const columns: { title: string; links: FooterLink[]; showCookieButton?: boolean }[] = [
-    { title: "Company", links: COMPANY_LINKS },
-    { title: "Support", links: SUPPORT_LINKS },
-    { title: "Legal", links: LEGAL_LINKS, showCookieButton: true },
-  ];
-  return (
-    <div
-      className={
-        variant === "static"
-          ? "hidden w-full flex-col gap-14 lg:flex"
-          : "flex w-full flex-col gap-8 lg:hidden"
-      }
-    >
-      {columns.map((column) =>
-        variant === "static" ? (
-          <StaticColumn key={column.title} {...column} />
-        ) : (
-          <Accordion key={column.title} {...column} />
-        )
-      )}
+      </div>
+      <div className="flex flex-col gap-1.5 text-[13px] text-gray-200">
+        <div className="flex items-center gap-2">
+          <span className="text-gray-400">Tel:</span>
+          <a href={`tel:${contact.tel}`} className="font-semibold text-white hover:underline">
+            {contact.tel}
+          </a>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-gray-400">Email:</span>
+          <a href={`mailto:${contact.email}`} className="text-white hover:underline break-all">
+            {contact.email}
+          </a>
+        </div>
+      </div>
+      <div className="mt-2 grid grid-cols-2 gap-3 pt-2 border-t border-white/10">
+        <div className="flex flex-col items-center gap-1.5">
+          <div className="overflow-hidden rounded bg-white p-1 shadow-sm">
+            <img
+              src={contact.wechatQr}
+              alt={`${contact.name} WeChat QR Code`}
+              className="h-24 w-24 object-contain"
+            />
+          </div>
+          <span className="text-[11px] font-medium text-gray-300">WeChat 微信扫码</span>
+        </div>
+        <div className="flex flex-col items-center gap-1.5">
+          <div className="overflow-hidden rounded bg-white p-1 shadow-sm">
+            <img
+              src={contact.whatsappQr}
+              alt={`${contact.name} WhatsApp QR Code`}
+              className="h-24 w-24 object-contain"
+            />
+          </div>
+          <span className="text-[11px] font-medium text-gray-300">WhatsApp 扫码联系</span>
+        </div>
+      </div>
     </div>
   );
 }
 
 export function Footer() {
   return (
-    <footer className="bg-[#101010] text-white">
-      <div className="flex flex-col gap-8 px-4 py-8 lg:flex-row lg:justify-between lg:gap-[90px] lg:px-12 lg:py-12">
-        <NewsletterBlock />
-        <div className="mb-10 lg:hidden">
-          <NeedHelpBlock />
+    <footer id="footer-contact" className="bg-[#101010] text-white">
+      <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* 公司品牌与简介 */}
+          <div className="flex flex-col gap-6 lg:col-span-5">
+            <div className="flex items-center gap-3">
+              <img
+                src="/imgs/trademark.jpg"
+                alt="深圳润裕商贸有限公司"
+                className="h-12 w-auto rounded object-contain bg-white/10 p-1"
+              />
+              <div>
+                <h2 className="text-[20px] font-bold leading-tight">深圳润裕商贸有限公司</h2>
+                <p className="text-[12px] tracking-wider text-gray-300">
+                  SHENZHEN RUNYU TRADING CO., LTD.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3 text-[14px] leading-relaxed text-gray-300">
+              <p>
+                <strong className="text-white">主营产品：</strong>不锈钢制品 (Stainless Steel Products)、保温杯、器皿与户外水具。
+              </p>
+              <p>
+                <strong className="text-white">代工模式：</strong>支持专业 <span className="font-bold text-white">OEM & ODM</span> 深度定制，欢迎全球客商询盘合作。
+              </p>
+              <p>
+                <strong className="text-white">官方网址：</strong>
+                <a
+                  href="http://www.runyu.shop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 text-white underline hover:text-gray-300"
+                >
+                  http://www.runyu.shop/
+                </a>
+              </p>
+            </div>
+
+            {/* 公司地址 */}
+            <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-[13px] text-gray-300">
+              <div className="font-bold text-white mb-1.5 flex items-center gap-2">
+                <Icon name="location" size={16} />
+                <span>公司地址 / Address</span>
+              </div>
+              <p className="leading-snug">广东省梅州市梅江区城北镇明阳村第十八村民小组罗屋41号</p>
+              <p className="mt-1 text-[12px] text-gray-400 leading-snug">
+                No. 41, Luowu, Mingyang Village, Chengbei Town, Meijiang District, Meizhou City, Guangdong Province, China
+              </p>
+            </div>
+
+            {/* 社媒矩阵 */}
+            <div>
+              <p className="text-[14px] font-semibold text-white mb-3">关注我们 / Follow Us (@RunyuKENoVA)</p>
+              <div className="flex gap-4">
+                {SOCIALS.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+                    title={social.label}
+                  >
+                    <Icon name={social.name} size={20} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 商务对接与二维码 */}
+          <div className="flex flex-col gap-6 lg:col-span-7">
+            <div>
+              <h3 className="text-[22px] font-bold text-white">业务联系与咨询 / Contact Us</h3>
+              <p className="mt-1 text-[13px] text-gray-400">
+                支持电话直拨与 WeChat / WhatsApp 扫码快速沟通
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {CONTACTS.map((contact) => (
+                <ContactCard key={contact.name} contact={contact} />
+              ))}
+            </div>
+          </div>
         </div>
-        <ColumnsGroup variant="accordion" />
-        <ColumnsGroup variant="static" />
-        <div className="hidden lg:block">
-          <NeedHelpBlock />
+
+        {/* 底部版权 */}
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[13px] text-gray-400 sm:flex-row">
+          <p>© 2026 深圳润裕商贸有限公司 (SHENZHEN RUNYU TRADING CO., LTD.) All Rights Reserved.</p>
+          <div className="flex items-center gap-4 text-[12px]">
+            <a href="http://www.runyu.shop/" className="hover:text-white">
+              runyu.shop
+            </a>
+            <span>•</span>
+            <span>OEM & ODM 不锈钢制品专家</span>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-4 border-t border-white/15 px-4 py-6 text-[14px] lg:flex-row lg:items-center lg:justify-between lg:px-12">
-        <p>©PMI WW Brands, LLC, All Rights Reserved</p>
-        <button type="button" className="flex w-fit items-center gap-2 text-[14px] text-white">
-          <Icon name="location" size={16} />
-          Select Location and Language USA
-          <Icon name="chevron-down" size={16} />
-        </button>
       </div>
     </footer>
   );
